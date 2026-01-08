@@ -1,0 +1,83 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.box1 {
+    width: 100%;
+    background-image: url("img/back1.png");
+    display: table;
+    margin: 0;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 75px;
+}
+
+.title {
+    font-family: "UnifrakturMaguntia";
+    font-size: 85px;
+    color: blanchedalmond;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    max-width: 600px;
+}
+
+.txt1 {
+    font-family: "DM Serif Text";
+    color: white;
+    font-size: 25px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 750px;
+    margin-top: 20px;
+}
+
+.button-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.rules {
+    color: white;
+    background-image: url("img/blue-button.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 300px;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+
+.rules:hover {
+    transform: scale(1.05);
+}
+
+.help {
+    color: white;
+    background-image: url("img/red-button.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 300px;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+
+.help:hover {
+    transform: scale(1.05);
+}
