@@ -1,4 +1,5 @@
-*{
+body {
+    background-color: rgb(255, 234, 209);
     margin:0;
     padding:0;
 }
@@ -17,7 +18,7 @@
 .title {
     font-family: "UnifrakturMaguntia";
     font-size: 85px;
-    color: blanchedalmond;
+    color: bisque;
     margin: 0 auto;
     text-align: center;
     margin-top: 50px;
@@ -80,4 +81,43 @@
 
 .help:hover {
     transform: scale(1.05);
+}
+
+.board-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.board {
+    width: 30%;
+    padding-right: 100px;
+}
+
+.board-title {
+    font-size: 35px;
+    padding-bottom: 10px;
+}
+
+.board-txt {
+    font-family: "DM Serif Text";
+    font-size: 18px;
+    width: 600px;
+    padding-top: 20px;
+}
+
+.card-box {
+    background-image: url("img/back2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 550px;
+    padding-bottom: 434px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-title {
+    color: white;
+    font-size: 40px;
 }
