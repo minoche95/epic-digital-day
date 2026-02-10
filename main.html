@@ -12,8 +12,8 @@
         <h1 class="title">La Malédiction de Drakthar</h1>
         <p class="txt1">Il y a mille ans, l'Ancien Drakthar fut banni dans les limbes. Aujourd'hui, sa malédiction s'infiltre à nouveau dans notre monde corrompant les terres et transformant les alliés en ennemis.</p>
         <div class="button-box">
-            <button class="rules">Règles</button>
-            <button class="help">Nous soutenir</button>
+            <a href="#rule"><button class="rules">Règles</button></a>
+            <a href=""><button class="help">Nous soutenir</button></a>
         </div>
     </section>
 
@@ -28,13 +28,110 @@
 
     <section class="card-box">
         <h2 class="card-title">Les cartes du jeu</h2>
-        <article>
-            <img src="" alt="">
-            <div>
-                <h3></h3>
-                <p></p>
-            </div>
-        </article>
+        <section class="cards-container">   
+            <article>
+                <img src="img/cards/BACK-event.png" alt="event card">
+                <div>
+                    <h3>Carte Événement</h3>
+                    <p>Les cartes événement permettent de modifier le cours du jeu.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="img/cards/BOSS-back.png" alt="boss card">
+                <div>
+                    <h3>Carte Boss</h3>
+                    <p>Les cartes boss représentent les ennemis principaux du jeu.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="img/cards/MOB-Back.png" alt="mob card">
+                <div>
+                    <h3>Carte Mob</h3>
+                    <p>Les cartes mob représentent les ennemis secondaires du jeu.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="img/cards/OBJ-Back.png" alt="object card">
+                <div>
+                    <h3>Carte Objet</h3>
+                    <p>Les cartes objet représentent les objets utilisables dans le jeu.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="img/cards/ROLE-back.png" alt="role card">
+                <div>
+                    <h3>Carte Rôle</h3>
+                    <p>Les cartes rôle représentent les rôles des joueurs dans le jeu.</p>
+                </div>
+            </article>
+        </section>
     </section>
+
+    <section id="rule">
+    <h2 class="rule-title">RÈGLES DU JEU</h2>
+    
+    <div class="rules-container">
+        <article class="rule-box1">
+            <h3>Objectif du Jeu</h3>
+            <p class="rule-txt">
+                Un joueur est secrètement désigné traître en début de partie et tentera de faire 
+                échouer le groupe en les menant à leur perte !
+            </p>
+
+            <h3>Mise en Place</h3>
+            <ol class="rule-list">
+                <li>Chaque joueur place son pion sur la case de départ du plateau.</li>
+                <li>Distribuez 3 cartes Objet à chaque joueur.</li>
+                <li>Mettez en place la réserve de vie commune à 5 jetons.</li>
+            </ol>
+
+            <h3>Déroulement d'un Tour</h3>
+            <p class="rule-txt">Chaque joueur, à son tour, effectue les étapes suivantes :</p>
+            <ol class="rule-list">
+                <li><strong>Avancer :</strong> Le joueur avance son pion de 1 case sur le plateau.</li>
+                <li><strong>Action :</strong> (1 par tour) Il choisit une action parmi les suivantes (voir colonne suivante).</li>
+            </ol>
+        </article>
+
+        <article class="rule-box2">
+            <h3>Détail des Actions</h3>
+            <ul class="rule-list">
+                <li>
+                    <strong>Combattre ou avancer :</strong>
+                    <ul>
+                        <li>Piocher une carte "Mob".</li>
+                        <li>Si réussite : gagne 1 carte Objet.</li>
+                        <li>Si échec : tous les joueurs perdent 1 point de vie.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Donner un objet :</strong>
+                    <ul>
+                        <li>Une fois par tour, donner 1 de ses cartes Objet à un autre joueur.</li>
+                        <li><em>Condition :</em> Le receveur ne peut pas avoir plus de 5 cartes Objet après l'échange.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Règles Spéciales</h3>
+            <ul class="rule-list">
+                <li><strong>Main maximale :</strong> Un joueur ne peut posséder plus de 5 cartes Objet.</li>
+                <li><strong>Fin de partie :</strong> La partie est perdue si la réserve de vie tombe à 0.</li>
+                <li><strong>But fixe :</strong> Les joueurs gagnent lorsque tout le monde atteint le centre du plateau.</li>
+                <em>Cliquez </em><a href="img/Règles.pdf" target="_blank">ICI</a><em> pour télécharger les règles complètes</em>
+            </ul>
+        </article>
+    </div>
+
+    <div class="button-container">
+        <a href="https://www.youtube.com/watch?v=hbDZJF7n1bI" target="_blank">
+            <button class="rule-button">Voir la vidéo explicative</button>
+        </a>
+    </div>
+</section>
 </body>
 </html>
