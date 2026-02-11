@@ -267,6 +267,7 @@ html {
     cursor: pointer;
     position: relative;
     font-size: 15px;
+    text-decoration: none;
     transition: 0.5s ease;
 }
 
@@ -422,4 +423,125 @@ section#rule {
     max-width: 250px;
     height: auto;
     display: block;
+}
+
+.donation-section {
+    background-image: url("img/back3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 550px;
+    background-position: 0% 85%;
+    padding: 40px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.donation-title {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.goals-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    width: 160px;
+    background-color: #2b2b2b;
+    border: 4px solid #c2b280;
+    border-radius: 2px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    outline: 1px solid #4a3c2b;
+    outline-offset: -5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.goal-card:hover {
+    transform: translateY(-8px);
+    border-color: #dfce96;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 
+                0 0 15px rgba(194, 178, 128, 0.4), 
+                inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.goal-card:hover .goal-top {
+    background-image: linear-gradient(to bottom, #474d57, #1a1c20);
+    transition: background-image 0.3s ease;
+}
+
+.goal-top {
+    background-color: #2a2d34;
+    background-image: linear-gradient(to bottom, #3a3f47, #1a1c20);
+    color: #ffffff;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px double #c2b280;
+}
+
+.goal-price {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+.goal-label {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.goal-bottom {
+    background-color: #eaddce;
+    background-image: linear-gradient(to bottom, #f2eadb, #d8c8b0);
+    color: #1a1a1a;
+    padding: 15px 10px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal-bottom p {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    font-weight: 700;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .goals-wrapper {
+        gap: 20px;
+    }
+    
+    .goal-card {
+        width: calc(50% - 20px);
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .goal-card {
+        width: 100%;
+        max-width: 250px;
+    }
 }
