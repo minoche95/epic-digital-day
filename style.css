@@ -1,99 +1,130 @@
-body {
-    background-color: rgb(255, 234, 209);
-    margin:0;
-    padding:0;
+:root {
+    /* --- COULEURS --- */
+    --bg-main: rgb(255, 234, 209);
+    --text-main: #1a1a1a;
+    --text-light: #ffffff;
+    --text-muted: #888;
+    
+    /* Palette Drakthar */
+    --color-ink: #2c1a0b;
+    --color-night: #0b0c15;
+    --color-night-light: #0d1b2a;
+    --color-gold: #c5a059;
+    --color-gold-light: #f1ebd6;
+    --color-gold-border: #c2b280;
+    --color-crimson: #8b0000;
+    --color-table-bg: #fffaf0;
+    --color-hover-row: #ece0c6;
+
+    /* --- POLICES --- */
+    --font-title: 'UnifrakturMaguntia', cursive;
+    --font-serif: 'DM Serif Text', serif;
+    --font-display: 'Playfair Display', serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-body: 'Lato', sans-serif;
 }
 
+/* =========================================
+   1. BASE & RESET
+   ========================================= */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
+body {
+    background-color: var(--bg-main);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--text-main);
+}
+
+/* =========================================
+   2. COMPOSANTS RÉUTILISABLES
+   ========================================= */
+
+/* Boutons (Règles, Aide, Vidéo) - Styles partagés */
+.rules, .help, .rule-button {
+    color: var(--text-light);
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+    transition: transform 0.5s ease;
+    will-change: transform; /* Optimisation animation */
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.rules { background-image: url("img/blue-button.png"); width: 300px; }
+.help, .rule-button { background-image: url("img/red-button.png"); }
+.help { width: 300px; }
+
+.rule-button {
+    display: block;
+    margin: 40px auto 0;
+    padding: 15px 50px;
+    font-size: 15px;
+}
+
+.rules:hover, .help:hover, .rule-button:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   3. SECTIONS
+   ========================================= */
+
+/* --- HEADER / HERO (Box 1) --- */
 .box1 {
     width: 100%;
     background-image: url("img/back1.png");
-    display: table;
-    margin: 0;
-    max-width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
     padding-bottom: 75px;
+    padding-top: 50px; /* AJOUTÉ : remplace la marge du titre */
+    display: block; 
 }
 
 .title {
-    font-family: "UnifrakturMaguntia";
+    font-family: var(--font-title);
     font-size: 85px;
     color: bisque;
-    margin: 0 auto;
+    margin: 0 auto; /* MODIFIÉ : 0 en haut au lieu de 50px */
     text-align: center;
-    margin-top: 50px;
     max-width: 600px;
 }
 
 .txt1 {
-    font-family: "DM Serif Text";
-    color: white;
+    font-family: var(--font-serif);
+    color: var(--text-light);
     font-size: 25px;
-    margin: 0 auto;
+    margin: 20px auto 0;
     text-align: center;
     max-width: 750px;
-    margin-top: 20px;
 }
 
 .button-box {
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    gap: 20px; /* Ajout d'un gap natif au lieu de compter sur les marges des éléments */
 }
 
-.rules {
-    color: white;
-    background-image: url("img/blue-button.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-position: center;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    width: 300px;
-    font-size: 20px;
-    transition: 0.5s ease;
-}
-
-.rules:hover {
-    transform: scale(1.05);
-}
-
-.help {
-    color: white;
-    background-image: url("img/red-button.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-position: center;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    width: 300px;
-    font-size: 20px;
-    transition: 0.5s ease;
-}
-
-.help:hover {
-    transform: scale(1.05);
-}
-
+/* --- PLATEAU (Board) --- */
 .board-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 80px 0;
 }
 
 .board {
@@ -107,118 +138,33 @@ html {
 }
 
 .board-txt {
-    font-family: "DM Serif Text";
+    font-family: var(--font-serif);
     font-size: 18px;
     width: 600px;
     padding-top: 20px;
 }
 
+/* --- CARTES (Cards) --- */
 .card-box {
     background-image: url("img/back2.png");
     background-repeat: no-repeat;
     background-size: 100% 550px;
     padding-bottom: 67px;
     display: flex;
-    justify-content: center;
     flex-direction: column; 
     align-items: center;
 }
 
 .card-title {
-    color: white;
+    color: var(--text-light);
     font-size: 40px;
     margin-bottom: 15px;
 }
 
-.card-box article {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-box article:hover {
-    transform: translateY(-10px);
-}
-
-@media (max-width: 1024px) {
-    .board {
-        width: 50%;
-        padding-right: 50px;
-    }
-    
-    .board-txt {
-        width: 100%;
-    }
-    
-    .cards-container {
-        width: 90%;
-        flex-wrap: wrap;
-    }
-}
-
-@media (max-width: 768px) {
-    .title {
-        font-size: 50px;
-    }
-    
-    .txt1 {
-        font-size: 18px;
-        max-width: 90%;
-    }
-    
-    .board-box {
-        flex-direction: column;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    
-    .board {
-        width: 90%;
-        padding-right: 0;
-        margin-bottom: 30px;
-    }
-    
-    .rules,
-    .help {
-        width: 250px;
-        font-size: 16px;
-    }
-    
-    .card-box img {
-        width: 120px;
-    }
-    
-    .card-box h3 {
-        font-size: 16px;
-    }
-    
-    .card-box p {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 35px;
-        margin-top: 30px;
-    }
-    
-    .box1 {
-        padding-bottom: 40px;
-    }
-    
-    .button-box {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .rules,
-    .help {
-        width: 200px;
-        font-size: 14px;
-    }
-    
-    .card-title {
-        font-size: 28px;
-    }
+.cards-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
 }
 
 .card-box article {
@@ -226,6 +172,12 @@ html {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.card-box article:hover {
+    transform: translateY(-10px);
 }
 
 .card-box img {
@@ -235,62 +187,32 @@ html {
 }
 
 .card-box h3 {
-    color: white;
+    color: var(--text-light);
     font-size: 20px;
 }
 
 .card-box p {
-    color: white;
-    font-family: "DM Serif Text";
+    color: var(--text-light);
+    font-family: var(--font-serif);
     font-size: 13px;
 }
 
-.cards-container {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-}
-
-.rule-button {
-    color: white;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    background-image: url("img/red-button.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-position: center;
-    border: none;
-    padding: 15px 50px;
-    cursor: pointer;
-    position: relative;
-    font-size: 15px;
-    text-decoration: none;
-    transition: 0.5s ease;
-}
-
-.rule-button:hover {
-    transform: scale(1.05);
-}
-
+/* --- RÈGLES (Rules Section) --- */
 section#rule {
-    color: black;
-    font-family: 'Lato', sans-serif;
+    color: var(--text-main);
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .rule-title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     text-align: center;
     font-size: 3rem;
     text-transform: uppercase;
     margin-bottom: 50px;
     letter-spacing: 2px;
-    color: #1a1a1a;
+    color: var(--text-main);
 }
 
 .rules-container {
@@ -299,24 +221,20 @@ section#rule {
     gap: 60px;
 }
 
-.rule-box1, 
-.rule-box2 {
+.rule-box1, .rule-box2 {
     flex: 1;
     min-width: 300px;
 }
 
-.rule-box1 h3, 
-.rule-box2 h3 {
-    font-family: 'Playfair Display', serif;
+.rule-box1 h3, .rule-box2 h3 {
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    margin-bottom: 15px;
-    margin-top: 30px;
+    margin: 30px 0 15px;
     padding-bottom: 5px;
     color: #000;
 }
 
-.rule-box1 h3:first-child, 
-.rule-box2 h3:first-child {
+.rule-box1 h3:first-child, .rule-box2 h3:first-child {
     margin-top: 0;
 }
 
@@ -333,26 +251,197 @@ section#rule {
     line-height: 1.5;
 }
 
-.rule-list li {
-    margin-bottom: 8px;
+.rule-list li { margin-bottom: 8px; }
+.rule-list strong { font-weight: 700; color: #000; }
+.rule-list ul, .rule-list ol { margin-top: 5px; margin-left: 20px; list-style-type: circle; }
+
+/* --- BUDGET & TABLEAU --- */
+.drakthar-budget-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: var(--font-cinzel);
+    color: var(--color-ink);
 }
 
-.rule-list strong {
-    color: #000;
+.drakthar-gothic-title {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--color-ink);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.drakthar-funding-goal {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--color-gold);
+    border-bottom: 1px solid var(--color-gold);
+    padding: 20px 0;
+    background-color: rgba(197, 160, 89, 0.1);
+}
+
+.drakthar-highlight {
+    color: var(--color-crimson);
     font-weight: 700;
+    font-size: 1.4rem;
 }
 
-.rule-list ul, 
-.rule-list ol {
-    margin-top: 5px;
-    margin-left: 20px;
-    list-style-type: circle;
+.drakthar-table-scroll-frame {
+    overflow-x: auto;
+    border: 3px double var(--color-night-light);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    background-color: var(--color-table-bg);
 }
 
+.drakthar-ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.drakthar-table-header {
+    background-color: var(--color-night-light);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 60px;
+    font-size: 1.1rem;
+}
+
+.drakthar-table-header th {
+    padding: 0 20px;
+    text-align: left;
+    border-bottom: 3px solid var(--color-gold);
+}
+
+.drakthar-ledger-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e0d0b0;
+    vertical-align: middle;
+}
+
+.cell-category { font-weight: 700; color: var(--color-night-light); font-size: 1.1rem; }
+.cell-cost { font-weight: 700; color: var(--color-crimson); font-family: monospace; font-size: 1.2rem; }
+.cell-source { font-style: italic; color: #555; font-size: 0.95rem; }
+
+.drakthar-ledger-table tbody tr:nth-child(even) { background-color: rgba(0, 0, 0, 0.03); }
+.drakthar-ledger-table tbody tr:hover { background-color: var(--color-hover-row); transition: background-color 0.3s ease; }
+
+.drakthar-table-footer { background-color: var(--color-night-light); color: white; }
+.drakthar-table-footer td { padding: 25px 20px; border-top: 3px solid var(--color-gold); }
+
+.footer-label { color: var(--color-gold); font-size: 1.3rem; font-weight: bold; }
+.footer-cost { color: var(--color-gold); font-size: 1.5rem; font-family: monospace; font-weight: bold; }
+.footer-source { font-style: italic; font-size: 0.9rem; opacity: 0.8; }
+
+/* --- DONATIONS --- */
+.donation-section {
+    background-image: url("img/back3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 550px;
+    background-position: 0% 85%;
+    padding: 40px;
+    text-align: center;
+}
+
+.donation-title {
+    font-family: var(--font-cinzel);
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin: 0 0 40px 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.goals-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    width: 160px;
+    background-color: #2b2b2b;
+    border: 4px solid var(--color-gold-border);
+    border-radius: 2px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid #4a3c2b;
+    outline-offset: -5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-8px);
+    border-color: #dfce96;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 
+                0 0 15px rgba(194, 178, 128, 0.4), 
+                inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.goal-card:hover .goal-top {
+    background-image: linear-gradient(to bottom, #474d57, #1a1c20);
+}
+
+.goal-top {
+    background-color: #2a2d34;
+    background-image: linear-gradient(to bottom, #3a3f47, #1a1c20);
+    color: var(--text-light);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 3px double var(--color-gold-border);
+    transition: background-image 0.3s ease;
+}
+
+.goal-price {
+    font-family: var(--font-cinzel);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+.goal-label {
+    font-family: var(--font-cinzel);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.goal-bottom {
+    background-color: #eaddce;
+    background-image: linear-gradient(to bottom, #f2eadb, #d8c8b0);
+    color: var(--text-main);
+    padding: 15px 10px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goal-bottom p {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- FOOTER --- */
 .drakthar-footer {
-    background-color: #0b0c15;
+    background-color: var(--color-night);
     color: #a0a0a0;
-    font-family: 'Lato', sans-serif;
     padding: 20px 0;
     border-top: 3px solid #8e7f58;
     width: 100%;
@@ -373,12 +462,10 @@ section#rule {
     font-size: 0.75rem;
     line-height: 1.4;
     padding: 0 20px;
-    color: #888;
+    color: var(--text-muted);
 }
 
-.footer-text strong {
-    color: #ccc;
-}
+.footer-text strong { color: #ccc; }
 
 .footer-right {
     flex: 1;
@@ -388,20 +475,15 @@ section#rule {
     gap: 10px;
 }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
+.social-icons { display: flex; gap: 15px; }
 
 .social-icons a {
-    color: #f1ebd6;
+    color: var(--color-gold-light);
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-    color: #8e7f58;
-}
+.social-icons a:hover { color: #8e7f58; }
 
 .legal-links {
     font-size: 0.7rem;
@@ -410,14 +492,12 @@ section#rule {
 }
 
 .legal-links a {
-    color: #f1ebd6;
+    color: var(--color-gold-light);
     text-decoration: none;
     transition: opacity 0.3s;
 }
 
-.legal-links a:hover {
-    opacity: 0.7;
-}
+.legal-links a:hover { opacity: 0.7; }
 
 .logo-img {
     max-width: 250px;
@@ -425,123 +505,317 @@ section#rule {
     display: block;
 }
 
-.donation-section {
-    background-image: url("img/back3.png");
-    background-repeat: no-repeat;
-    background-size: 100% 550px;
-    background-position: 0% 85%;
-    padding: 40px;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-}
+/* --- SECTION POURQUOI INVESTIR --- */
 
-.donation-title {
-    font-family: 'Cinzel', serif;
-    color: #ffffff;
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.goals-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+.invest-section {
+    padding: 60px 20px;
+    background-color: transparent; /* Se fond sur ton fond beige ou image */
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.goal-card {
-    width: 160px;
-    background-color: #2b2b2b;
-    border: 4px solid #c2b280;
-    border-radius: 2px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0,0,0,0.8);
+.invest-main-title {
+    font-family: var(--font-cinzel);
+    color: var(--color-ink); /* Encre sombre */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Le conteneur sombre (Fond bleu nuit) */
+.invest-container {
+    background-color: var(--color-night-light);
+    border: 2px solid var(--color-gold-border);
+    border-radius: 4px;
+    padding: 40px;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    outline: 1px solid #4a3c2b;
-    outline-offset: -5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-
-.goal-card:hover {
-    transform: translateY(-8px);
-    border-color: #dfce96;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 
-                0 0 15px rgba(194, 178, 128, 0.4), 
-                inset 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.goal-card:hover .goal-top {
-    background-image: linear-gradient(to bottom, #474d57, #1a1c20);
-    transition: background-image 0.3s ease;
-}
-
-.goal-top {
-    background-color: #2a2d34;
-    background-image: linear-gradient(to bottom, #3a3f47, #1a1c20);
-    color: #ffffff;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
+    gap: 50px;
     align-items: center;
-    border-bottom: 3px double #c2b280;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
 }
 
-.goal-price {
-    font-family: 'Cinzel', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+/* Texture subtile de fond (optionnel) */
+.invest-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("img/back2.png"); /* Réutilisation subtile de ta texture */
+    opacity: 0.1;
+    pointer-events: none;
 }
 
-.goal-label {
-    font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
+/* --- Colonne Gauche (Texte) --- */
+.invest-content {
+    flex: 3; /* Prend plus de place que la carte */
+    z-index: 1;
+}
+
+.invest-subtitle {
+    font-family: var(--font-title); /* Police Gothique */
+    color: var(--color-gold);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
     letter-spacing: 1px;
 }
 
-.goal-bottom {
-    background-color: #eaddce;
-    background-image: linear-gradient(to bottom, #f2eadb, #d8c8b0);
-    color: #1a1a1a;
-    padding: 15px 10px;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.invest-text {
+    font-family: var(--font-body);
+    color: #d0d0d0; /* Blanc cassé pour lisibilité sur fond sombre */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.goal-bottom p {
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.6;
+.highlight-gold {
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.highlight-crimson {
+    color: #ff6b6b; /* Un rouge un peu plus clair pour ressortir sur le foncé */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.invest-note {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-muted);
+    border-left: 3px solid var(--color-gold);
+    padding-left: 15px;
+    margin-top: 25px;
+}
+
+/* --- Colonne Droite (Carte Marché Dorée) --- */
+.invest-market-card {
+    flex: 2;
+    background-color: var(--color-gold); /* Fond doré */
+    color: var(--color-ink); /* Texte sombre */
+    padding: 30px;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    position: relative;
+    border: 1px solid #fff;
+    outline: 4px solid var(--color-gold); /* Double bordure style carte */
+    outline-offset: -8px;
+    z-index: 1;
+    min-width: 280px;
+}
+
+.market-title {
+    font-family: var(--font-cinzel);
+    font-size: 1.5rem;
     font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--color-ink);
+    display: inline-block;
+}
+
+.market-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.market-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.icon-market {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 3px;
+    color: var(--color-crimson); /* Icônes rouges */
+    width: 20px;
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .goals-wrapper {
-        gap: 20px;
+/* --- Responsive Mobile --- */
+@media (max-width: 900px) {
+    .invest-container {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
     }
     
-    .goal-card {
-        width: calc(50% - 20px);
-        min-width: 140px;
+    .invest-market-card {
+        width: 100%;
+        box-sizing: border-box; /* Important pour que le padding ne dépasse pas */
+    }
+    
+    .invest-subtitle {
+        font-size: 1.8rem;
+        text-align: center;
     }
 }
 
-@media (max-width: 480px) {
-    .goal-card {
-        width: 100%;
-        max-width: 250px;
-    }
+/* --- SECTION VIDEO TEASER --- */
+
+.teaser-section {
+    background-color: var(--color-night); /* Fond sombre pour le cinéma */
+    padding: 60px 20px;
+    border-top: 3px solid var(--color-gold);
+    border-bottom: 3px solid var(--color-gold);
+    position: relative;
+    /* Optionnel : Ajoute une texture de fond sombre si tu en as une */
+    background-image: radial-gradient(circle at center, #1a202c 0%, #0b0c15 100%);
 }
+
+.teaser-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.teaser-title {
+    font-family: var(--font-title); /* Police Gothique */
+    color: var(--color-gold-light);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+.teaser-subtitle {
+    font-family: var(--font-body);
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Le texte "Traître" en rouge sang lumineux au lieu du violet */
+.traitor-text {
+    color: var(--color-crimson);
+    font-family: var(--font-cinzel);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
+    animation: pulse-traitor 3s infinite;
+}
+
+/* Animation douce de la lueur du texte */
+@keyframes pulse-traitor {
+    0% { opacity: 0.8; text-shadow: 0 0 5px rgba(139, 0, 0, 0.6); }
+    50% { opacity: 1; text-shadow: 0 0 15px rgba(139, 0, 0, 0.9); }
+    100% { opacity: 0.8; text-shadow: 0 0 5px rgba(139, 0, 0, 0.6); }
+}
+
+/* --- LE LECTEUR VIDÉO --- */
+
+/* Le cadre décoratif autour de la vidéo */
+.video-frame-outer {
+    position: relative;
+    padding: 5px; /* Espace pour la bordure double */
+    background: var(--color-night-light);
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Ombre portée */
+    margin-bottom: 40px;
+    
+    /* Effet de lueur "Maudit" autour du cadre (Remplaçant le violet) */
+    outline: 2px solid var(--color-crimson);
+    outline-offset: 4px;
+}
+
+/* Wrapper pour rendre la vidéo responsive (16:9 ratio) */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Bouton d'action agrandi */
+.big-cta {
+    font-size: 1.3rem;
+    padding: 20px 60px;
+    width: auto;
+    margin-top: 0; /* Override la marge par défaut */
+    /* Animation subtile pour attirer l'œil */
+    animation: float-btn 4s ease-in-out infinite;
+}
+
+@keyframes float-btn {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Hover spécifique pour le gros bouton */
+.big-cta:hover {
+    transform: scale(1.05) translateY(-5px); /* On combine l'échelle et le float */
+}
+
+/* =========================================
+   4. MEDIA QUERIES
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .board { width: 50%; padding-right: 50px; }
+    .board-txt { width: 100%; }
+    .cards-container { width: 90%; flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+    /* Typographie */
+    .title { font-size: 50px; }
+    .txt1 { font-size: 18px; max-width: 90%; }
+    .drakthar-gothic-title { font-size: 2.5rem; }
+
+    /* Layout */
+    .board-box { flex-direction: column; padding: 40px 0; }
+    .board { width: 90%; padding-right: 0; margin-bottom: 30px; }
+
+    .teaser-title { font-size: 2rem; }
+    .teaser-subtitle { font-size: 1rem; }
+    .big-cta { width: 100%; padding: 15px 20px; font-size: 1.1rem; }
+    
+    /* Composants */
+    .rules, .help { width: 250px; font-size: 16px; }
+    .card-box img { width: 120px; }
+    .card-box h3 { font-size: 16px; }
+    .card-box p { font-size: 12px; }
+    
+    /* Budget & Goals */
+    .drakthar-funding-goal { font-size: 1rem; padding: 15px; }
+    .drakthar-table-scroll-frame { margin: 0 -10px; border-left: none; border-right: none; border-radius: 0; }
+    
+    .goals-wrapper { gap: 20px; }
+    .goal-card { width: calc(50% - 20px); min-width: 140px; }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    .title { font-size: 35px; margin-top: 30px; }
+    .box1 { padding-bottom: 40px; }
+    .button-box { flex-direction: column; gap: 15px; align-items: center; }
+    .rules, .help { width: 200px; font-size: 14px; }
+    
+    /* Cartes */
+    .card-title { font-size: 28px; }
+    
+    /* Goals */
+    .goal-card { width: 100%; max-width: 250px; }
+}
+
