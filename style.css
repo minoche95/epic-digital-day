@@ -1,939 +1,987 @@
 :root {
-    /* --- COULEURS --- */
-    --bg-main: rgb(255, 234, 209);
-    --text-main: #1a1a1a;
-    --text-light: #ffffff;
-    --text-muted: #888;
-    
-    /* Palette Drakthar */
-    --color-ink: #2c1a0b;
-    --color-night: #0b0c15;
-    --color-night-light: #0d1b2a;
-    --color-gold: #c5a059;
-    --color-gold-light: #f1ebd6;
-    --color-gold-border: #c2b280;
-    --color-crimson: #8b0000;
-    --color-table-bg: #fffaf0;
-    --color-hover-row: #ece0c6;
+  /* COULEURS */
+  --bg-main: rgb(255, 234, 209);
+  --text-main: #1a1a1a;
+  --text-light: #ffffff;
+  --text-muted: #888;
 
-    /* --- POLICES --- */
-    --font-title: 'UnifrakturMaguntia', cursive;
-    --font-serif: 'DM Serif Text', serif;
-    --font-display: 'Playfair Display', serif;
-    --font-cinzel: 'Cinzel', serif;
-    --font-body: 'Lato', sans-serif;
+  /* Palette Drakthar */
+  --color-ink: #2c1a0b;
+  --color-night: #0b0c15;
+  --color-night-light: #0d1b2a;
+  --color-gold: #c5a059;
+  --color-gold-light: #f1ebd6;
+  --color-gold-border: #c2b280;
+  --color-crimson: #8b0000;
+  --color-table-bg: #fffaf0;
+  --color-hover-row: #ece0c6;
+
+  /* POLICES */
+  --font-title: "UnifrakturMaguntia", cursive;
+  --font-serif: "DM Serif Text", serif;
+  --font-display: "Playfair Display", serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-body: "Lato", sans-serif;
 }
 
-/* =========================================
-   1. BASE & RESET
-   ========================================= */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-main);
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-body);
-    color: var(--text-main);
+  background-color: var(--bg-main);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--text-main);
 }
 
-/* =========================================
-   2. COMPOSANTS RÉUTILISABLES
-   ========================================= */
-
-/* Boutons (Règles, Aide, Vidéo) - Styles partagés */
-.rules, .help, .rule-button {
-    color: var(--text-light);
-    background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    font-size: 20px;
-    transition: transform 0.5s ease;
-    will-change: transform; /* Optimisation animation */
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
+/* Boutons */
+.rules,
+.help,
+.rule-button {
+  color: var(--text-light);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  transition: transform 0.5s ease;
+  will-change: transform; /* Optimisation animation */
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
-.rules { background-image: url("img/blue-button.png"); width: 300px; }
-.help, .rule-button { background-image: url("img/red-button.png"); }
-.help { width: 300px; }
+.rules {
+  background-image: url("img/blue-button.png");
+  width: 300px;
+}
+.help,
+.rule-button {
+  background-image: url("img/red-button.png");
+}
+.help {
+  width: 300px;
+}
 
 .rule-button {
-    display: block;
-    margin: 40px auto 0;
-    padding: 15px 50px;
-    font-size: 15px;
+  display: block;
+  margin: 40px auto 0;
+  padding: 15px 50px;
+  font-size: 15px;
 }
 
-.rules:hover, .help:hover, .rule-button:hover {
-    transform: scale(1.05);
+.rules:hover,
+.help:hover,
+.rule-button:hover {
+  transform: scale(1.05);
 }
-
-/* =========================================
-   3. SECTIONS
-   ========================================= */
 
 /* --- HEADER / HERO (Box 1) --- */
 .box1 {
-    width: 100%;
-    background-image: url("img/back1.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-    padding-bottom: 75px;
-    padding-top: 50px; /* AJOUTÉ : remplace la marge du titre */
-    display: block; 
+  width: 100%;
+  background-image: url("img/back1.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  padding-bottom: 75px;
+  padding-top: 50px;
+  display: block;
 }
 
 .title {
-    font-family: var(--font-title);
-    font-size: 85px;
-    color: bisque;
-    margin: 0 auto; /* MODIFIÉ : 0 en haut au lieu de 50px */
-    text-align: center;
-    max-width: 600px;
+  font-family: var(--font-title);
+  font-size: 85px;
+  color: bisque;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 600px;
 }
 
 .txt1 {
-    font-family: var(--font-serif);
-    color: var(--text-light);
-    font-size: 25px;
-    margin: 20px auto 0;
-    text-align: center;
-    max-width: 750px;
+  font-family: var(--font-serif);
+  color: var(--text-light);
+  font-size: 25px;
+  margin: 20px auto 0;
+  text-align: center;
+  max-width: 750px;
 }
 
 .button-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    gap: 20px; /* Ajout d'un gap natif au lieu de compter sur les marges des éléments */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 20px;
 }
 
-/* --- PLATEAU (Board) --- */
+/* PLATEAU */
 .board-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
 }
 
 .board {
-    width: 30%;
-    padding-right: 100px;
+  width: 30%;
+  padding-right: 100px;
 }
 
 .board-title {
-    font-size: 35px;
-    padding-bottom: 10px;
+  font-size: 35px;
+  padding-bottom: 10px;
 }
 
 .board-txt {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    width: 600px;
-    padding-top: 20px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  width: 600px;
+  padding-top: 20px;
 }
 
-/* --- CARTES (Cards) --- */
+/* CARTES */
 .card-box {
-    background-image: url("img/back2.png");
-    background-repeat: no-repeat;
-    background-size: 100% 550px;
-    padding-bottom: 67px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+  background-image: url("img/back2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 550px;
+  padding-bottom: 67px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-title {
-    color: var(--text-light);
-    font-size: 40px;
-    margin-bottom: 15px;
+  color: var(--text-light);
+  font-size: 40px;
+  margin-bottom: 15px;
 }
 
 .cards-container {
-    display: flex;
-    justify-content: center;
-    width: 80%;
+  display: flex;
+  justify-content: center;
+  width: 80%;
 }
 
 .card-box article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .card-box article:hover {
-    transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .card-box img {
-    width: 180px;
-    height: auto;
-    margin: 10px;
+  width: 180px;
+  height: auto;
+  margin: 10px;
 }
 
 .card-box h3 {
-    color: var(--text-light);
-    font-size: 20px;
+  color: var(--text-light);
+  font-size: 20px;
 }
 
 .card-box p {
-    color: var(--text-light);
-    font-family: var(--font-serif);
-    font-size: 13px;
+  color: var(--text-light);
+  font-family: var(--font-serif);
+  font-size: 13px;
 }
 
-/* --- RÈGLES (Rules Section) --- */
+/* RÈGLES */
 section#rule {
-    color: var(--text-main);
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  color: var(--text-main);
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .rule-title {
-    font-family: var(--font-display);
-    text-align: center;
-    font-size: 3rem;
-    text-transform: uppercase;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-    color: var(--text-main);
+  font-family: var(--font-display);
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  color: var(--text-main);
 }
 
 .rules-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
 }
 
-.rule-box1, .rule-box2 {
-    flex: 1;
-    min-width: 300px;
+.rule-box1,
+.rule-box2 {
+  flex: 1;
+  min-width: 300px;
 }
 
-.rule-box1 h3, .rule-box2 h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin: 30px 0 15px;
-    padding-bottom: 5px;
-    color: #000;
+.rule-box1 h3,
+.rule-box2 h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 30px 0 15px;
+  padding-bottom: 5px;
+  color: #000;
 }
 
-.rule-box1 h3:first-child, .rule-box2 h3:first-child {
-    margin-top: 0;
+.rule-box1 h3:first-child,
+.rule-box2 h3:first-child {
+  margin-top: 0;
 }
 
 .rule-txt {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    text-align: justify;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
 }
 
 .rule-list {
-    margin: 10px 0 20px 20px;
-    padding: 0;
-    line-height: 1.5;
+  margin: 10px 0 20px 20px;
+  padding: 0;
+  line-height: 1.5;
 }
 
-.rule-list li { margin-bottom: 8px; }
-.rule-list strong { font-weight: 700; color: #000; }
-.rule-list ul, .rule-list ol { margin-top: 5px; margin-left: 20px; list-style-type: circle; }
+.rule-list li {
+  margin-bottom: 8px;
+}
+.rule-list strong {
+  font-weight: 700;
+  color: #000;
+}
+.rule-list ul,
+.rule-list ol {
+  margin-top: 5px;
+  margin-left: 20px;
+  list-style-type: circle;
+}
 
-/* --- BUDGET & TABLEAU --- */
+/* BUDGET & TABLEAU */
 .drakthar-budget-section {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 20px;
-    font-family: var(--font-cinzel);
-    color: var(--color-ink);
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+  font-family: var(--font-cinzel);
+  color: var(--color-ink);
 }
 
 .drakthar-gothic-title {
-    font-family: var(--font-title);
-    font-size: 3.5rem;
-    text-align: center;
-    color: var(--color-ink);
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  text-align: center;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .drakthar-funding-goal {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    border-top: 1px solid var(--color-gold);
-    border-bottom: 1px solid var(--color-gold);
-    padding: 20px 0;
-    background-color: rgba(197, 160, 89, 0.1);
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  padding: 20px 0;
+  background-color: rgba(197, 160, 89, 0.1);
 }
 
 .drakthar-highlight {
-    color: var(--color-crimson);
-    font-weight: 700;
-    font-size: 1.4rem;
+  color: var(--color-crimson);
+  font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .drakthar-table-scroll-frame {
-    overflow-x: auto;
-    border: 3px double var(--color-night-light);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    border-radius: 4px;
-    background-color: var(--color-table-bg);
+  overflow-x: auto;
+  border: 3px double var(--color-night-light);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: var(--color-table-bg);
 }
 
 .drakthar-ledger-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
 }
 
 .drakthar-table-header {
-    background-color: var(--color-night-light);
-    color: var(--color-gold);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    height: 60px;
-    font-size: 1.1rem;
+  background-color: var(--color-night-light);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 60px;
+  font-size: 1.1rem;
 }
 
 .drakthar-table-header th {
-    padding: 0 20px;
-    text-align: left;
-    border-bottom: 3px solid var(--color-gold);
+  padding: 0 20px;
+  text-align: left;
+  border-bottom: 3px solid var(--color-gold);
 }
 
 .drakthar-ledger-table td {
-    padding: 18px 20px;
-    border-bottom: 1px solid #e0d0b0;
-    vertical-align: middle;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e0d0b0;
+  vertical-align: middle;
 }
 
-.cell-category { font-weight: 700; color: var(--color-night-light); font-size: 1.1rem; }
-.cell-cost { font-weight: 700; color: var(--color-crimson); font-family: monospace; font-size: 1.2rem; }
-.cell-source { font-style: italic; color: #555; font-size: 0.95rem; }
-
-.drakthar-ledger-table tbody tr:nth-child(even) { background-color: rgba(0, 0, 0, 0.03); }
-.drakthar-ledger-table tbody tr:hover { background-color: var(--color-hover-row); transition: background-color 0.3s ease; }
-
-.drakthar-table-footer { background-color: var(--color-night-light); color: white; }
-.drakthar-table-footer td { padding: 25px 20px; border-top: 3px solid var(--color-gold); }
-
-.footer-label { color: var(--color-gold); font-size: 1.3rem; font-weight: bold; }
-.footer-cost { color: var(--color-gold); font-size: 1.5rem; font-family: monospace; font-weight: bold; }
-.footer-source { font-style: italic; font-size: 0.9rem; opacity: 0.8; }
-
-/* --- DONATIONS --- */
+/* DONATIONS */
 .donation-section {
-    background-image: url("img/back3.png");
-    background-repeat: no-repeat;
-    background-size: 100% 550px;
-    background-position: 0% 85%;
-    padding: 40px;
-    text-align: center;
+  background-image: url("img/back3.png");
+  background-repeat: no-repeat;
+  background-size: 100% 550px;
+  background-position: 0% 85%;
+  padding: 40px;
+  text-align: center;
 }
 
 .donation-title {
-    font-family: var(--font-cinzel);
-    color: var(--text-light);
-    font-size: 2.5rem;
-    margin: 0 0 40px 0;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: var(--font-cinzel);
+  color: var(--text-light);
+  font-size: 2.5rem;
+  margin: 0 0 40px 0;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .goals-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .goal-card {
-    width: 160px;
-    background-color: #2b2b2b;
-    border: 4px solid var(--color-gold-border);
-    border-radius: 2px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0,0,0,0.8);
-    display: flex;
-    flex-direction: column;
-    outline: 1px solid #4a3c2b;
-    outline-offset: -5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 160px;
+  background-color: #2b2b2b;
+  border: 4px solid var(--color-gold-border);
+  border-radius: 2px;
+  box-shadow:
+    0 10px 15px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid #4a3c2b;
+  outline-offset: -5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .goal-card:hover {
-    transform: translateY(-8px);
-    border-color: #dfce96;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7), 
-                0 0 15px rgba(194, 178, 128, 0.4), 
-                inset 0 0 10px rgba(0, 0, 0, 0.8);
+  transform: translateY(-8px);
+  border-color: #dfce96;
+  box-shadow:
+    0 15px 25px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(194, 178, 128, 0.4),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .goal-card:hover .goal-top {
-    background-image: linear-gradient(to bottom, #474d57, #1a1c20);
+  background-image: linear-gradient(to bottom, #474d57, #1a1c20);
 }
 
 .goal-top {
-    background-color: #2a2d34;
-    background-image: linear-gradient(to bottom, #3a3f47, #1a1c20);
-    color: var(--text-light);
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 3px double var(--color-gold-border);
-    transition: background-image 0.3s ease;
+  background-color: #2a2d34;
+  background-image: linear-gradient(to bottom, #3a3f47, #1a1c20);
+  color: var(--text-light);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px double var(--color-gold-border);
+  transition: background-image 0.3s ease;
 }
 
 .goal-price {
-    font-family: var(--font-cinzel);
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  font-family: var(--font-cinzel);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .goal-label {
-    font-family: var(--font-cinzel);
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+  font-family: var(--font-cinzel);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 .goal-bottom {
-    background-color: #eaddce;
-    background-image: linear-gradient(to bottom, #f2eadb, #d8c8b0);
-    color: var(--text-main);
-    padding: 15px 10px;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #eaddce;
+  background-image: linear-gradient(to bottom, #f2eadb, #d8c8b0);
+  color: var(--text-main);
+  padding: 15px 10px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .goal-bottom p {
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.6;
-    font-weight: 700;
-    text-align: center;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  font-weight: 700;
+  text-align: center;
 }
 
-/* --- FOOTER --- */
+/* FOOTER */
 .drakthar-footer {
-    background-color: var(--color-night);
-    color: #a0a0a0;
-    padding: 20px 0;
-    border-top: 3px solid #8e7f58;
-    width: 100%;
+  background-color: var(--color-night);
+  color: #a0a0a0;
+  padding: 20px 0;
+  border-top: 3px solid #8e7f58;
+  width: 100%;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-text {
-    flex: 2;
-    text-align: center;
-    font-size: 0.75rem;
-    line-height: 1.4;
-    padding: 0 20px;
-    color: var(--text-muted);
+  flex: 2;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding: 0 20px;
+  color: var(--text-muted);
 }
 
-.footer-text strong { color: #ccc; }
+.footer-text strong {
+  color: #ccc;
+}
 
 .footer-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
-.social-icons { display: flex; gap: 15px; }
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
 
 .social-icons a {
-    color: var(--color-gold-light);
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+  color: var(--color-gold-light);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
-.social-icons a:hover { color: #8e7f58; }
+.social-icons a:hover {
+  color: #8e7f58;
+}
 
 .legal-links {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .legal-links a {
-    color: var(--color-gold-light);
-    text-decoration: none;
-    transition: opacity 0.3s;
+  color: var(--color-gold-light);
+  text-decoration: none;
+  transition: opacity 0.3s;
 }
 
-.legal-links a:hover { opacity: 0.7; }
+.legal-links a:hover {
+  opacity: 0.7;
+}
 
 .logo-img {
-    max-width: 250px;
-    height: auto;
-    display: block;
+  max-width: 250px;
+  height: auto;
+  display: block;
 }
 
-/* --- SECTION POURQUOI INVESTIR --- */
+/* INVESTIR */
 
 .invest-section {
-    padding: 60px 20px;
-    background-color: transparent; /* Se fond sur ton fond beige ou image */
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 60px 20px;
+  background-color: transparent;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .invest-main-title {
-    font-family: var(--font-cinzel);
-    color: var(--color-ink); /* Encre sombre */
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-family: var(--font-cinzel);
+  color: var(--color-ink);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Le conteneur sombre (Fond bleu nuit) */
+/* Conteneur */
 .invest-container {
-    background-color: var(--color-night-light);
-    border: 2px solid var(--color-gold-border);
-    border-radius: 4px;
-    padding: 40px;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    position: relative;
-    overflow: hidden;
+  background-color: var(--color-night-light);
+  border: 2px solid var(--color-gold-border);
+  border-radius: 4px;
+  padding: 40px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Texture subtile de fond (optionnel) */
-.invest-container::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url("img/back2.png"); /* Réutilisation subtile de ta texture */
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-/* --- Colonne Gauche (Texte) --- */
+/* Colonne Gauche */
 .invest-content {
-    flex: 3; /* Prend plus de place que la carte */
-    z-index: 1;
+  flex: 3;
+  z-index: 1;
 }
 
 .invest-subtitle {
-    font-family: var(--font-title); /* Police Gothique */
-    color: var(--color-gold);
-    font-size: 2rem;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+  font-family: var(--font-title);
+  color: var(--color-gold);
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .invest-text {
-    font-family: var(--font-body);
-    color: #d0d0d0; /* Blanc cassé pour lisibilité sur fond sombre */
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+  font-family: var(--font-body);
+  color: #d0d0d0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .highlight-gold {
-    color: var(--color-gold);
-    font-weight: bold;
+  color: var(--color-gold);
+  font-weight: bold;
 }
 
 .highlight-crimson {
-    color: #ff6b6b; /* Un rouge un peu plus clair pour ressortir sur le foncé */
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9em;
+  color: #ff6b6b;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 
 .invest-note {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--text-muted);
-    border-left: 3px solid var(--color-gold);
-    padding-left: 15px;
-    margin-top: 25px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 3px solid var(--color-gold);
+  padding-left: 15px;
+  margin-top: 25px;
 }
 
-/* --- Colonne Droite (Carte Marché Dorée) --- */
+/* Colonne Droite */
 .invest-market-card {
-    flex: 2;
-    background-color: var(--color-gold); /* Fond doré */
-    color: var(--color-ink); /* Texte sombre */
-    padding: 30px;
-    border-radius: 2px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    position: relative;
-    border: 1px solid #fff;
-    outline: 4px solid var(--color-gold); /* Double bordure style carte */
-    outline-offset: -8px;
-    z-index: 1;
-    min-width: 280px;
+  flex: 2;
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+  padding: 30px;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 1px solid #fff;
+  outline: 4px solid var(--color-gold);
+  outline-offset: -8px;
+  z-index: 1;
+  min-width: 280px;
 }
 
 .market-title {
-    font-family: var(--font-cinzel);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    border-bottom: 2px solid var(--color-ink);
-    display: inline-block;
+  font-family: var(--font-cinzel);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-ink);
+  display: inline-block;
 }
 
 .market-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
 .market-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .icon-market {
-    font-size: 1.2rem;
-    margin-right: 15px;
-    margin-top: 3px;
-    color: var(--color-crimson); /* Icônes rouges */
-    width: 20px;
-    text-align: center;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  margin-top: 3px;
+  color: var(--color-crimson);
+  width: 20px;
+  text-align: center;
 }
 
 /* --- Responsive Mobile --- */
 @media (max-width: 900px) {
-    .invest-container {
-        flex-direction: column;
-        padding: 30px 20px;
-        gap: 30px;
-    }
-    
-    .invest-market-card {
-        width: 100%;
-        box-sizing: border-box; /* Important pour que le padding ne dépasse pas */
-    }
-    
-    .invest-subtitle {
-        font-size: 1.8rem;
-        text-align: center;
-    }
+  .invest-container {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .invest-market-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .invest-subtitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
 }
 
-/* --- SECTION VIDEO TEASER --- */
+/* VIDEO TEASER */
 
 .teaser-section {
-    background-color: var(--color-night); /* Fond sombre pour le cinéma */
-    padding: 60px 20px;
-    border-top: 3px solid var(--color-gold);
-    border-bottom: 3px solid var(--color-gold);
-    position: relative;
-    /* Optionnel : Ajoute une texture de fond sombre si tu en as une */
-    background-image: radial-gradient(circle at center, #1a202c 0%, #0b0c15 100%);
+  background-color: var(--color-night);
+  padding: 60px 20px;
+  border-top: 3px solid var(--color-gold);
+  border-bottom: 3px solid var(--color-gold);
+  position: relative;
 }
 
 .teaser-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .teaser-title {
-    font-family: var(--font-title); /* Police Gothique */
-    color: var(--color-gold-light);
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+  font-family: var(--font-title);
+  color: var(--color-gold-light);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
 }
 
 .teaser-subtitle {
-    font-family: var(--font-body);
-    color: #a0a0a0;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 40px;
+  font-family: var(--font-body);
+  color: #a0a0a0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
 }
 
-/* Le texte "Traître" en rouge sang lumineux au lieu du violet */
+/* Texte rouge sang */
 .traitor-text {
-    color: var(--color-crimson);
-    font-family: var(--font-cinzel);
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
-    animation: pulse-traitor 3s infinite;
+  color: var(--color-crimson);
+  font-family: var(--font-cinzel);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
+  animation: pulse-traitor 3s infinite;
 }
 
-/* Animation douce de la lueur du texte */
+/* Lueur texte */
 @keyframes pulse-traitor {
-    0% { opacity: 0.8; text-shadow: 0 0 5px rgba(139, 0, 0, 0.6); }
-    50% { opacity: 1; text-shadow: 0 0 15px rgba(139, 0, 0, 0.9); }
-    100% { opacity: 0.8; text-shadow: 0 0 5px rgba(139, 0, 0, 0.6); }
+  0% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(139, 0, 0, 0.6);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.9);
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(139, 0, 0, 0.6);
+  }
 }
 
-/* --- LE LECTEUR VIDÉO --- */
+/* LECTEUR VIDÉO */
 
-/* Le cadre décoratif autour de la vidéo */
+/* Cadre décoratif */
 .video-frame-outer {
-    position: relative;
-    padding: 5px; /* Espace pour la bordure double */
-    background: var(--color-night-light);
-    border: 1px solid var(--color-gold);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Ombre portée */
-    margin-bottom: 40px;
-    
-    /* Effet de lueur "Maudit" autour du cadre (Remplaçant le violet) */
-    outline: 2px solid var(--color-crimson);
-    outline-offset: 4px;
+  position: relative;
+  padding: 5px;
+  background: var(--color-night-light);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  margin-bottom: 40px;
+
+  /* Effet de lueur */
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 4px;
 }
 
-/* Wrapper pour rendre la vidéo responsive (16:9 ratio) */
+/* Wrapper pour responsive (16:9 ratio) */
 .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
-    height: 0;
-    overflow: hidden;
-    background-color: #000;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
 }
 
 .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Bouton d'action agrandi */
+/* Bouton d'action */
 .big-cta {
-    font-size: 1.3rem;
-    padding: 20px 60px;
-    width: auto;
-    margin-top: 0; /* Override la marge par défaut */
-    /* Animation subtile pour attirer l'œil */
-    animation: float-btn 4s ease-in-out infinite;
+  font-size: 1.3rem;
+  padding: 20px 60px;
+  width: auto;
+  animation: float-btn 4s ease-in-out infinite;
 }
 
 @keyframes float-btn {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-/* Hover spécifique pour le gros bouton */
-.big-cta:hover {
-    transform: scale(1.05) translateY(-5px); /* On combine l'échelle et le float */
-}
-
-/* --- SECTION VITRINE 3D --- */
+/* VITRINE 3D */
 
 .showcase-section {
-    background-color: var(--color-night); /* Fond sombre */
-    padding: 80px 20px;
-    border-top: 1px solid var(--color-gold);
-    /* Optionnel : Ajoute une texture de fond subtile si tu en as une */
-    background-image: linear-gradient(to right, #0b0c15, #151725, #0b0c15);
+  background-color: var(--color-night);
+  padding: 80px 20px;
+  border-top: 1px solid var(--color-gold);
 }
 
 .showcase-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
-/* --- Colonne Texte --- */
+/* Texte */
 .showcase-text {
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  text-align: left;
 }
 
 .showcase-title {
-    font-family: var(--font-title); /* Police Gothique */
-    font-size: 3rem;
-    color: var(--color-gold-light);
-    margin: 0;
-    line-height: 1.1;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--color-gold-light);
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .gold-separator {
-    width: 80px;
-    height: 3px;
-    background-color: var(--color-crimson); /* Touche de rouge */
-    margin: 20px 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-crimson);
+  margin: 20px 0;
 }
 
 .showcase-desc {
-    font-family: var(--font-body);
-    color: #a0a0a0;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
+  font-family: var(--font-body);
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 
-/* Instruction d'interaction */
-.interaction-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 20px;
-    background-color: rgba(197, 160, 89, 0.1); /* Fond doré très léger */
-    border: 1px solid var(--color-gold);
-    border-radius: 4px;
-    color: var(--color-gold);
-    font-family: var(--font-cinzel);
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.interaction-hint i {
-    animation: spin-slow 3s linear infinite;
-}
-
-@keyframes spin-slow {
-    100% { transform: rotate(360deg); }
-}
-
-/* --- Colonne Modèle 3D --- */
+/* Modèle 3D */
 .showcase-model-wrapper {
-    flex: 1.2; /* Prend un peu plus de place que le texte */
-    height: 450px;
-    position: relative;
-    
-    /* Le cadre magique */
-    border: 2px solid var(--color-gold-border);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
-                inset 0 0 20px rgba(0,0,0,0.8);
-    border-radius: 4px;
-    overflow: hidden;
-    background-color: #000;
+  flex: 1.2;
+  height: 450px;
+  position: relative;
+
+  /* Cadre de la box */
+  border: 2px solid var(--color-gold-border);
+  border-radius: 4px;
+  background-color: #000;
 }
 
 .showcase-model-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* --- Responsive Mobile --- */
 @media (max-width: 900px) {
-    .showcase-container {
-        flex-direction: column-reverse; /* Met le modèle au-dessus du texte sur mobile */
-        gap: 40px;
-    }
+  .showcase-container {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
 
-    .showcase-text {
-        text-align: center;
-    }
-    
-    .gold-separator {
-        margin: 20px auto;
-    }
-    
-    .showcase-model-wrapper {
-        width: 100%;
-        height: 350px; /* Un peu moins haut sur mobile */
-    }
-    
-    .showcase-title {
-        font-size: 2.2rem;
-    }
+  .showcase-text {
+    text-align: center;
+  }
+
+  .gold-separator {
+    margin: 20px auto;
+  }
+
+  .showcase-model-wrapper {
+    width: 100%;
+    height: 350px;
+  }
+
+  .showcase-title {
+    font-size: 2.2rem;
+  }
 }
 
-/* =========================================
-   4. MEDIA QUERIES
-   ========================================= */
-
 @media (max-width: 1024px) {
-    .board { width: 50%; padding-right: 50px; }
-    .board-txt { width: 100%; }
-    .cards-container { width: 90%; flex-wrap: wrap; }
+  .board {
+    width: 50%;
+    padding-right: 50px;
+  }
+  .board-txt {
+    width: 100%;
+  }
+  .cards-container {
+    width: 90%;
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 768px) {
-    /* Typographie */
-    .title { font-size: 50px; }
-    .txt1 { font-size: 18px; max-width: 90%; }
-    .drakthar-gothic-title { font-size: 2.5rem; }
+  /* Typographie */
+  .title {
+    font-size: 50px;
+  }
+  .txt1 {
+    font-size: 18px;
+    max-width: 90%;
+  }
+  .drakthar-gothic-title {
+    font-size: 2.5rem;
+  }
 
-    /* Layout */
-    .board-box { flex-direction: column; padding: 40px 0; }
-    .board { width: 90%; padding-right: 0; margin-bottom: 30px; }
+  /* Layout */
+  .board-box {
+    flex-direction: column;
+    padding: 40px 0;
+  }
+  .board {
+    width: 90%;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
 
-    .teaser-title { font-size: 2rem; }
-    .teaser-subtitle { font-size: 1rem; }
-    .big-cta { width: 100%; padding: 15px 20px; font-size: 1.1rem; }
-    
-    /* Composants */
-    .rules, .help { width: 250px; font-size: 16px; }
-    .card-box img { width: 120px; }
-    .card-box h3 { font-size: 16px; }
-    .card-box p { font-size: 12px; }
-    
-    /* Budget & Goals */
-    .drakthar-funding-goal { font-size: 1rem; padding: 15px; }
-    .drakthar-table-scroll-frame { margin: 0 -10px; border-left: none; border-right: none; border-radius: 0; }
-    
-    .goals-wrapper { gap: 20px; }
-    .goal-card { width: calc(50% - 20px); min-width: 140px; }
+  .teaser-title {
+    font-size: 2rem;
+  }
+  .teaser-subtitle {
+    font-size: 1rem;
+  }
+  .big-cta {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+
+  /* Composants */
+  .rules,
+  .help {
+    width: 250px;
+    font-size: 16px;
+  }
+  .card-box img {
+    width: 120px;
+  }
+  .card-box h3 {
+    font-size: 16px;
+  }
+  .card-box p {
+    font-size: 12px;
+  }
+
+  /* Budget & Goals */
+  .drakthar-funding-goal {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  .drakthar-table-scroll-frame {
+    margin: 0 -10px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+
+  .goals-wrapper {
+    gap: 20px;
+  }
+  .goal-card {
+    width: calc(50% - 20px);
+    min-width: 140px;
+  }
 }
 
 @media (max-width: 480px) {
-    /* Header */
-    .title { font-size: 35px; margin-top: 30px; }
-    .box1 { padding-bottom: 40px; }
-    .button-box { flex-direction: column; gap: 15px; align-items: center; }
-    .rules, .help { width: 200px; font-size: 14px; }
-    
-    /* Cartes */
-    .card-title { font-size: 28px; }
-    
-    /* Goals */
-    .goal-card { width: 100%; max-width: 250px; }
-}
+  /* Header */
+  .title {
+    font-size: 35px;
+    margin-top: 30px;
+  }
+  .box1 {
+    padding-bottom: 40px;
+  }
+  .button-box {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .rules,
+  .help {
+    width: 200px;
+    font-size: 14px;
+  }
 
+  /* Cartes */
+  .card-title {
+    font-size: 28px;
+  }
+
+  /* Goals */
+  .goal-card {
+    width: 100%;
+    max-width: 250px;
+  }
+}
